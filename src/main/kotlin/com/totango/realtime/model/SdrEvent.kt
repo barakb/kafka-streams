@@ -1,5 +1,4 @@
 package com.totango.realtime.model
-
 data class SdrEvent(
     val timestamp: String,
     val serviceId: String? = null,

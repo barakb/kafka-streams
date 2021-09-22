@@ -1,0 +1,23 @@
+{
+  "namespace": "com.totango.model",
+  "name": "ServiceOp",
+  "type": "record",
+  "fields": [
+    {
+      "name": "created_at",
+      "type": "long"
+    },
+    {
+      "name": "service_type",
+      "type": ["null","com.totango.model.ServiceType"]
+    },
+    {
+      "name": "op",
+      "type": "string"
+    },
+    {
+      "name": "service_id",
+      "type": "string"
+    }
+  ]
+}

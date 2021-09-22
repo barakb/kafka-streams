@@ -1,5 +1,6 @@
 package com.totango.realtime
 
+import com.totango.model.ServiceRecord
 import org.apache.kafka.streams.KafkaStreams
 import org.apache.kafka.streams.KeyValue
 import org.apache.kafka.streams.StoreQueryParameters
@@ -25,6 +26,7 @@ class RestAPI(val streams: KafkaStreams, val kafkaProperties: KafkaProperties) :
         val iterator = store?.all()
         return iterator?.toFlux()?.doAfterTerminate { iterator.close() } ?: Flux.empty()
     }
+
 
     override fun onApplicationEvent(event: ApplicationReadyEvent) {
         Runtime.getRuntime().addShutdownHook(Thread(streams::close))

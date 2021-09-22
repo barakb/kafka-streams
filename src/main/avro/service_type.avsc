@@ -1,0 +1,6 @@
+{
+  "namespace": "com.totango.model",
+  "name": "ServiceType",
+  "type": "enum",
+  "symbols" : ["FREE", "PAYING", "EXCLUSIVE"]
+}

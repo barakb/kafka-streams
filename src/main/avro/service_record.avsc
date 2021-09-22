@@ -1,0 +1,31 @@
+{
+  "namespace": "com.totango.model",
+  "name": "ServiceRecord",
+  "type": "record",
+  "fields": [
+    {
+      "name": "created_at",
+      "type": "long"
+    },
+    {
+      "name": "service_id",
+      "type": "string"
+    },
+    {
+      "name": "account_id",
+      "type": "string"
+    },
+    {
+      "name": "module",
+      "type": "string"
+    },
+    {
+      "name": "activity",
+      "type": "string"
+    },
+    {
+      "name": "user",
+      "type": "string"
+    }
+  ]
+}

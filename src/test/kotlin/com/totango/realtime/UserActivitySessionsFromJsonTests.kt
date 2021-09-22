@@ -15,7 +15,7 @@ import java.util.*
 // https://kafka.apache.org/documentation/streams/developer-guide/testing.html
 
 @SpringBootTest
-class UserActivitySessionsTests {
+class UserActivitySessionsFromJsonTests {
 
     private lateinit var testDriver: TopologyTestDriver
     private lateinit var inputTopic: TestInputTopic<Void, SdrEvent>
@@ -25,7 +25,7 @@ class UserActivitySessionsTests {
     fun setup() {
 
         val builder = StreamsBuilder()
-        builder.buildUserActivitySessions()
+        builder.buildUserActivitySessionsFromJson()
         val topology: Topology = builder.build()
 
         val props = Properties()
