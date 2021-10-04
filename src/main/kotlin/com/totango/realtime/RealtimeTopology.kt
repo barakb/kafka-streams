@@ -106,10 +106,12 @@ fun StreamsBuilder.buildServiceOpsProcessing(
     opsTopics: String
 ): StreamsBuilder {
 
-    val opsSerde = specificAvroSerde<ServiceOp>(schemaRegistryUrl)
     val servicesTable =
         table(servicesTopic, Consumed.with(Serdes.String(), specificAvroSerde<Service>(schemaRegistryUrl)))
+
+    val opsSerde = specificAvroSerde<ServiceOp>(schemaRegistryUrl)
     val opsStream = stream(opsTopics, Consumed.with(Serdes.String(), opsSerde))
+
 
     // join ops with service to get the service type for each service op, this will help us to decide how to dispatch it.
     val joinParams = Joined.with(
