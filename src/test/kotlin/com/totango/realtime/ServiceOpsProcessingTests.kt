@@ -106,23 +106,23 @@ class ServiceOpsProcessingTests {
             )
         )
 
-        val selfServiceOp = ServiceOp(Instant.now().toEpochMilli(), ServiceType.FREE, "update", "3")
+        val selfServiceOp = ServiceOp(Instant.now().toEpochMilli(), null, "update", "3")
         opsTopic.pipeInput(selfServiceOp.serviceId, selfServiceOp)
-        val payingServiceOp = ServiceOp(Instant.now().toEpochMilli(), ServiceType.PAYING, "update", "2")
+        val payingServiceOp = ServiceOp(Instant.now().toEpochMilli(),null, "update", "2")
         opsTopic.pipeInput(payingServiceOp.serviceId, payingServiceOp)
-        val exclusiveServiceOp = ServiceOp(Instant.now().toEpochMilli(), ServiceType.EXCLUSIVE, "update", "1")
+        val exclusiveServiceOp = ServiceOp(Instant.now().toEpochMilli(), null, "update", "1")
         opsTopic.pipeInput(exclusiveServiceOp.serviceId, exclusiveServiceOp)
 
         var records = selfServiceTopic.readRecordsToList()
         assertThat(records.size).isEqualTo(1)
-        assertThat(records[0].value).isEqualTo(selfServiceOp)
+        assertThat(records[0].value.serviceId).isEqualTo(selfServiceOp.serviceId)
 
         records = payingServiceTopic.readRecordsToList()
         assertThat(records.size).isEqualTo(1)
-        assertThat(records[0].value).isEqualTo(payingServiceOp)
+        assertThat(records[0].value.serviceId).isEqualTo(payingServiceOp.serviceId)
 
         records = exclusiveServiceTopic.readRecordsToList()
         assertThat(records.size).isEqualTo(1)
-        assertThat(records[0].value).isEqualTo(exclusiveServiceOp)
+        assertThat(records[0].value.serviceId).isEqualTo(exclusiveServiceOp.serviceId)
     }
 }
