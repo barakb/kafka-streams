@@ -1,3 +1,6 @@
+[![gradle](https://github.com/barakb/kafka-streams/actions/workflows/build.yml/badge.svg)](https://github.com/barakb/kafka-streams/actions/workflows/build.yml)
+
+
 Why Kafka streams ?
 ===================
 * Stateful stream processing
