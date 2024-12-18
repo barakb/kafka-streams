@@ -3,7 +3,7 @@ import  com.github.davidmc24.gradle.plugin.avro.*
 
 plugins {
 	id("org.springframework.boot") version "2.5.4"
-	id("io.spring.dependency-management") version "1.0.11.RELEASE"
+	id("io.spring.dependency-management") version "1.1.7"
 	kotlin("jvm") version "1.5.21"
 	kotlin("plugin.spring") version "1.5.21"
 	id("com.github.davidmc24.gradle.plugin.avro") version "1.2.1"
