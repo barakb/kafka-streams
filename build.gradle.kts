@@ -25,7 +25,7 @@ repositories {
 
 dependencies {
 	implementation("org.apache.kafka:kafka-streams")
-	implementation("org.apache.avro:avro:1.10.2")
+	implementation("org.apache.avro:avro:1.12.2")
 	implementation("io.confluent:kafka-avro-serializer:6.2.0")
 	implementation("io.confluent:kafka-streams-avro-serde:6.2.0")
 	implementation("org.springframework.boot:spring-boot-starter-webflux")
